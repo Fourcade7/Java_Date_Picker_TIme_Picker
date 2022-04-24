@@ -16,7 +16,12 @@
         android:layout_height="wrap_content"></Button>
     <Button
         android:id="@+id/button2"
-        android:text="Time Picker"
+        android:text="Date Picker Standart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></Button>
+    <Button
+        android:id="@+id/button3"
+        android:text="Timer Picker"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"></Button>
 
