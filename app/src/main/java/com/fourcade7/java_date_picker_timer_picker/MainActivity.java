@@ -3,12 +3,14 @@ package com.fourcade7.java_date_picker_timer_picker;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import java.util.Calendar;
@@ -65,6 +67,26 @@ public class MainActivity extends AppCompatActivity {
                 DatePickerDialog datePickerDialog=new DatePickerDialog(MainActivity.this,R.style.ThemeOverlay_Material3_Dialog,dateSetListener,yaer,month,day);
                 //datePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 datePickerDialog.show();
+            }
+        });
+
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Calendar calendar=Calendar.getInstance();
+
+                int hour=calendar.get(Calendar.HOUR_OF_DAY);
+                int minute=calendar.get(Calendar.MINUTE);
+                TimePickerDialog.OnTimeSetListener timeSetListener= new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker timePicker, int i, int i1) {
+                        Toast.makeText(MainActivity.this, i+":"+(i1), Toast.LENGTH_SHORT).show();
+
+                    }
+                };
+                TimePickerDialog timePickerDialog=new TimePickerDialog(MainActivity.this,timeSetListener,hour,minute,true);
+                //datePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                timePickerDialog.show();
             }
         });
     }
